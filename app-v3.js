@@ -29,7 +29,7 @@ function init() {
 			<a href="/"><img class="avatar" src="https://i.imgur.com/IdRoLkS.jpg"/></a>
 			<div class="nav_menu">
 				<ul class="menu_ul">
-					<li class="menu_li"><a href="https://t.me/canh1102" target="_blank">Tran Canh</a></li>
+					<li class="menu_li"><a href="https://t.me/canh1102" target="_blank">Repo owned by Tran Canh</a></li>
 				</ul>
 				<div class="nav_icon" ></div>
 			</div>
@@ -245,7 +245,7 @@ function list(path) {
 	 <div class="mdui-row"> 
 	  <ul id="list" class="mdui-list"> 
 	  </ul> 
-	  <div id="count" class="mdui-hidden mdui-center mdui-text-center mdui-m-b-3 mdui-typo-subheading mdui-text-color-blue-grey-500">Toàn bộ <span class="number"></span> mục</div>
+	  <div id="count" class="mdui-hidden mdui-center mdui-text-center mdui-m-b-3 mdui-typo-subheading mdui-text-color-blue-grey-500">Toàn bộ gồm <span class="number"></span> mục</div>
 	 </div>
 	`;
   $('#content').html(content);
@@ -478,7 +478,7 @@ function render_search_result_list() {
 	 <div class="mdui-row"> 
 	  <ul id="list" class="mdui-list"> 
 	  </ul> 
-	  <div id="count" class="mdui-hidden mdui-center mdui-text-center mdui-m-b-3 mdui-typo-subheading mdui-text-color-blue-grey-500">Toàn bộ <span class="number"></span> mục</div>
+	  <div id="count" class="mdui-hidden mdui-center mdui-text-center mdui-m-b-3 mdui-typo-subheading mdui-text-color-blue-grey-500">Toàn bộ gồm <span class="number"></span> mục</div>
 	 </div>
 	 <div id="readme_md" class="mdui-typo" style="display:none; padding: 20px 0;"></div>
 	`;
@@ -627,7 +627,7 @@ function onSearchResultItemClick(a_ele) {
   var cur = window.current_drive_order;
   var dialog = mdui.dialog({
     title: '',
-    content: '<div class="mdui-text-center mdui-typo-title mdui-m-b-1">Tìm đường dẫn đích ...</div><div class="mdui-spinner mdui-spinner-colorful mdui-center"></div>',
+    content: '<div class="mdui-text-center mdui-typo-title mdui-m-b-1">Chờ chút nào bro, đang load tìm đường dẫn đích ...</div><div class="mdui-spinner mdui-spinner-colorful mdui-center"></div>',
     // content: '<div class="mdui-spinner mdui-spinner-colorful mdui-center"></div>',
     history: false,
     modal: true,
@@ -648,7 +648,7 @@ function onSearchResultItemClick(a_ele) {
         closeOnEsc: true,
         buttons: [
           {
-            text: 'Bật', onClick: function () {
+            text: 'Play luôn', onClick: function () {
               window.location.href = href
             }
           }, {
@@ -805,10 +805,10 @@ function file_video(path) {
     .map(it => `<li class="mdui-menu-item"><a href="${it.href}" class="mdui-ripple">${it.text}</a></li>`)
     .join('');
   player_items += `<li class="mdui-divider"></li>
-                   <li class="mdui-menu-item"><a id="copy-link" class="mdui-ripple">Sao chép đường dẫn</a></li>`;
+                   <li class="mdui-menu-item"><a id="copy-link" class="mdui-ripple">Sao chép link</a></li>`;
   const playBtn = `
       <button class="mdui-btn mdui-ripple mdui-color-theme-accent" mdui-menu="{target:'#player-items'}">
-        <i class="mdui-icon material-icons">&#xe039;</i>Phát lại trên trình player bên ngoài<i class="mdui-icon material-icons">&#xe5cf;</i>
+        <i class="mdui-icon material-icons">&#xe039;</i>Phát trên trình player khác<i class="mdui-icon material-icons">&#xe5cf;</i>
       </button>
       <ul class="mdui-menu" id="player-items">${player_items}</ul>`;
 
@@ -823,7 +823,7 @@ function file_video(path) {
 	  <input class="mdui-textfield-input" type="text" value="${url}"/>
 	</div>
 	<div class="mdui-textfield">
-	  <label class="mdui-textfield-label">Địa chỉ HTML</label>
+	  <label class="mdui-textfield-label">Link nhúng HTML</label>
 	  <textarea class="mdui-textfield-input"><video><source src="${url}" type="video/mp4"></video></textarea>
 	</div>
 </div>
@@ -870,7 +870,7 @@ function file_audio(path) {
 	  <input class="mdui-textfield-input" type="text" value="${url}"/>
 	</div>
 	<div class="mdui-textfield">
-	  <label class="mdui-textfield-label">Địa chỉ HTML</label>
+	  <label class="mdui-textfield-label">Link nhúng HTML</label>
 	  <textarea class="mdui-textfield-input"><audio><source src="${url}"></audio></textarea>
 	</div>
 </div>
