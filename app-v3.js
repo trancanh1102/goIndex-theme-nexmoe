@@ -26,9 +26,10 @@ function init() {
   var html = `
 <header class="nexmoe-nav">
 	<div class="navSize">
-			<a href="/"><img class="avatar" src="https://i.loli.net/2020/04/24/wCxMZFtiv6aKmQ1.png"/></a>
+			<a href="/"><img class="avatar" src="https://i.imgur.com/IdRoLkS.jpg"/></a>
 			<div class="nav_menu">
 				<ul class="menu_ul">
+					<li class="menu_li"><a href="https://t.me/canh1102" target="_blank">Tran Canh</a></li>
 				</ul>
 				<div class="nav_icon" ></div>
 			</div>
@@ -106,7 +107,7 @@ function title(path) {
   // $('title').html(document.siteName + ' - ' + path);
   var model = window.MODEL;
   if (model.is_search_page)
-    $('title').html(`${document.siteName} - ${drive_name} - 搜索 ${model.q} 的结果`);
+    $('title').html(`${document.siteName} - ${drive_name} - Có ${model.q} kết quả được tìm thấy`);
   else
     $('title').html(`${document.siteName} - ${drive_name} - ${path}`);
 }
@@ -227,15 +228,15 @@ function list(path) {
 	  <ul class="mdui-list"> 
 	   <li class="mdui-list-item th"> 
 	    <div class="mdui-col-xs-12 mdui-col-sm-7">
-	     文件
+	     Tập tin
 	<i class="mdui-icon material-icons icon-sort" data-sort="name" data-order="more">expand_more</i>
 	    </div> 
 	    <div class="mdui-col-sm-3 mdui-text-right">
-	     修改时间
+	     Thời gian sửa gần đây
 	<i class="mdui-icon material-icons icon-sort" data-sort="date" data-order="downward">expand_more</i>
 	    </div> 
 	    <div class="mdui-col-sm-2 mdui-text-right">
-	     大小
+	     Kích thước
 	<i class="mdui-icon material-icons icon-sort" data-sort="size" data-order="downward">expand_more</i>
 	    </div> 
 	    </li> 
@@ -244,7 +245,7 @@ function list(path) {
 	 <div class="mdui-row"> 
 	  <ul id="list" class="mdui-list"> 
 	  </ul> 
-	  <div id="count" class="mdui-hidden mdui-center mdui-text-center mdui-m-b-3 mdui-typo-subheading mdui-text-color-blue-grey-500">共 <span class="number"></span> 项</div>
+	  <div id="count" class="mdui-hidden mdui-center mdui-text-center mdui-m-b-3 mdui-typo-subheading mdui-text-color-blue-grey-500">Toàn bộ <span class="number"></span> mục</div>
 	 </div>
 	`;
   $('#content').html(content);
@@ -460,15 +461,15 @@ function render_search_result_list() {
 	  <ul class="mdui-list"> 
 	   <li class="mdui-list-item th"> 
 	    <div class="mdui-col-xs-12 mdui-col-sm-7">
-	     文件
+	     Tập tin
 	<i class="mdui-icon material-icons icon-sort" data-sort="name" data-order="more">expand_more</i>
 	    </div> 
 	    <div class="mdui-col-sm-3 mdui-text-right">
-	     修改时间
+	     Thời gian sửa gần đây
 	<i class="mdui-icon material-icons icon-sort" data-sort="date" data-order="downward">expand_more</i>
 	    </div> 
 	    <div class="mdui-col-sm-2 mdui-text-right">
-	     大小
+	     Kích thước
 	<i class="mdui-icon material-icons icon-sort" data-sort="size" data-order="downward">expand_more</i>
 	    </div> 
 	    </li> 
@@ -477,7 +478,7 @@ function render_search_result_list() {
 	 <div class="mdui-row"> 
 	  <ul id="list" class="mdui-list"> 
 	  </ul> 
-	  <div id="count" class="mdui-hidden mdui-center mdui-text-center mdui-m-b-3 mdui-typo-subheading mdui-text-color-blue-grey-500">共 <span class="number"></span> 项</div>
+	  <div id="count" class="mdui-hidden mdui-center mdui-text-center mdui-m-b-3 mdui-typo-subheading mdui-text-color-blue-grey-500">Toàn bộ <span class="number"></span> mục</div>
 	 </div>
 	 <div id="readme_md" class="mdui-typo" style="display:none; padding: 20px 0;"></div>
 	`;
@@ -626,7 +627,7 @@ function onSearchResultItemClick(a_ele) {
   var cur = window.current_drive_order;
   var dialog = mdui.dialog({
     title: '',
-    content: '<div class="mdui-text-center mdui-typo-title mdui-m-b-1">正在获取目标路径...</div><div class="mdui-spinner mdui-spinner-colorful mdui-center"></div>',
+    content: '<div class="mdui-text-center mdui-typo-title mdui-m-b-1">Tìm đường dẫn đích ...</div><div class="mdui-spinner mdui-spinner-colorful mdui-center"></div>',
     // content: '<div class="mdui-spinner mdui-spinner-colorful mdui-center"></div>',
     history: false,
     modal: true,
@@ -640,35 +641,35 @@ function onSearchResultItemClick(a_ele) {
       dialog.close();
       var href = `/${cur}:${data}${can_preview ? '?a=view' : ''}`;
       dialog = mdui.dialog({
-        title: '<i class="mdui-icon material-icons">&#xe815;</i>目标路径',
+        title: '<i class="mdui-icon material-icons">&#xe815;</i>Đường dẫn đích',
         content: `<a href="${href}">${data}</a>`,
         history: false,
         modal: true,
         closeOnEsc: true,
         buttons: [
           {
-            text: '打开', onClick: function () {
+            text: 'Bật', onClick: function () {
               window.location.href = href
             }
           }, {
-            text: '新标签中打开', onClick: function () {
+            text: 'Mở trang mới', onClick: function () {
               window.open(href)
             }
           }
-          , {text: '取消'}
+          , {text: 'Hủy bỏ'}
         ]
       });
       return;
     }
     dialog.close();
     dialog = mdui.dialog({
-      title: '<i class="mdui-icon material-icons">&#xe811;</i>获取目标路径失败',
-      content: 'o(╯□╰)o 可能是因为该盘中并不存在此项！也可能因为没有把【与我共享】的文件添加到个人云端硬盘中！',
+      title: '<i class="mdui-icon material-icons">&#xe811;</i>Không nhận được đường dẫn của tập tin',
+      content: 'o(╯□╰)o Có thể tệp này không tồn tại trong ổ đĩa hoặc tệp tin này không được chia sẻ',
       history: false,
       modal: true,
       closeOnEsc: true,
       buttons: [
-        {text: 'WTF ???'}
+        {text: 'Hey, hình như có cái gì đó sai sai ???'}
       ]
     });
   })
@@ -737,7 +738,7 @@ function file_code(path) {
 <pre id="editor" ></pre>
 </div>
 <div class="mdui-textfield">
-	<label class="mdui-textfield-label">下载地址</label>
+	<label class="mdui-textfield-label">Liên kết tải xuống</label>
 	<input class="mdui-textfield-input" type="text" value="${href}"/>
 </div>
 <a href="${href}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
@@ -804,10 +805,10 @@ function file_video(path) {
     .map(it => `<li class="mdui-menu-item"><a href="${it.href}" class="mdui-ripple">${it.text}</a></li>`)
     .join('');
   player_items += `<li class="mdui-divider"></li>
-                   <li class="mdui-menu-item"><a id="copy-link" class="mdui-ripple">复制链接</a></li>`;
+                   <li class="mdui-menu-item"><a id="copy-link" class="mdui-ripple">Sao chép đường dẫn</a></li>`;
   const playBtn = `
       <button class="mdui-btn mdui-ripple mdui-color-theme-accent" mdui-menu="{target:'#player-items'}">
-        <i class="mdui-icon material-icons">&#xe039;</i>外部播放器播放<i class="mdui-icon material-icons">&#xe5cf;</i>
+        <i class="mdui-icon material-icons">&#xe039;</i>Phát lại trên trình player bên ngoài<i class="mdui-icon material-icons">&#xe5cf;</i>
       </button>
       <ul class="mdui-menu" id="player-items">${player_items}</ul>`;
 
@@ -818,11 +819,11 @@ function file_video(path) {
 	<br>${playBtn}
 	<!-- 固定标签 -->
 	<div class="mdui-textfield">
-	  <label class="mdui-textfield-label">下载地址</label>
+	  <label class="mdui-textfield-label">Liên kết tải xuống</label>
 	  <input class="mdui-textfield-input" type="text" value="${url}"/>
 	</div>
 	<div class="mdui-textfield">
-	  <label class="mdui-textfield-label">HTML 引用地址</label>
+	  <label class="mdui-textfield-label">Địa chỉ HTML</label>
 	  <textarea class="mdui-textfield-input"><video><source src="${url}" type="video/mp4"></video></textarea>
 	</div>
 </div>
@@ -837,7 +838,7 @@ function file_video(path) {
 const dp = new DPlayer({
     container: document.getElementById("dplayer"),
     loop: true,
-    lang: 'zh-cn',
+    lang: 'vi',
     screenshot: true,
     preload: 'auto',
     video: {
@@ -865,11 +866,11 @@ function file_audio(path) {
 	<br>
 	<!-- 固定标签 -->
 	<div class="mdui-textfield">
-	  <label class="mdui-textfield-label">下载地址</label>
+	  <label class="mdui-textfield-label">Liên kết tải xuống</label>
 	  <input class="mdui-textfield-input" type="text" value="${url}"/>
 	</div>
 	<div class="mdui-textfield">
-	  <label class="mdui-textfield-label">HTML 引用地址</label>
+	  <label class="mdui-textfield-label">Địa chỉ HTML</label>
 	  <textarea class="mdui-textfield-input"><audio><source src="${url}"></audio></textarea>
 	</div>
 </div>
@@ -923,10 +924,10 @@ function file_image(path) {
             <div class="mdui-container">
                 <div class="mdui-row-xs-2 mdui-m-b-1">
                     <div class="mdui-col">
-                        ${prev_child ? `<button id="leftBtn" data-filepath="${prev_child}" class="mdui-btn mdui-btn-block mdui-color-theme-accent mdui-ripple">上一张</button>` : `<button class="mdui-btn mdui-btn-block mdui-color-theme-accent mdui-ripple" disabled>上一张</button>`}
+                        ${prev_child ? `<button id="leftBtn" data-filepath="${prev_child}" class="mdui-btn mdui-btn-block mdui-color-theme-accent mdui-ripple">Trước</button>` : `<button class="mdui-btn mdui-btn-block mdui-color-theme-accent mdui-ripple" disabled>上一张</button>`}
                     </div>
                     <div class="mdui-col">
-                        ${next_child ? `<button id="rightBtn"  data-filepath="${next_child}" class="mdui-btn mdui-btn-block mdui-color-theme-accent mdui-ripple">下一张</button>` : `<button class="mdui-btn mdui-btn-block mdui-color-theme-accent mdui-ripple" disabled>下一张</button>`}
+                        ${next_child ? `<button id="rightBtn"  data-filepath="${next_child}" class="mdui-btn mdui-btn-block mdui-color-theme-accent mdui-ripple">Sau</button>` : `<button class="mdui-btn mdui-btn-block mdui-color-theme-accent mdui-ripple" disabled>下一张</button>`}
                     </div> 
                 </div>
             </div>
@@ -946,15 +947,15 @@ function file_image(path) {
     </div>
 	<br>
 	<div class="mdui-textfield">
-	  <label class="mdui-textfield-label">下载地址</label>
+	  <label class="mdui-textfield-label">Liên kết tải xuống</label>
 	  <input class="mdui-textfield-input" type="text" value="${url}"/>
 	</div>
 	<div class="mdui-textfield">
-	  <label class="mdui-textfield-label">HTML 引用地址</label>
+	  <label class="mdui-textfield-label">Liên kết HTML</label>
 	  <input class="mdui-textfield-input" type="text" value="<img src='${url}' />"/>
 	</div>
         <div class="mdui-textfield">
-	  <label class="mdui-textfield-label">Markdown 引用地址</label>
+	  <label class="mdui-textfield-label">Đánh dấu địa chỉ</label>
 	  <input class="mdui-textfield-input" type="text" value="![](${url})"/>
 	</div>
         <br>
